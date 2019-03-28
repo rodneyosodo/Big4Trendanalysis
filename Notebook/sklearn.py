@@ -3,7 +3,7 @@
 
 # In[1]:
 
-
+import sklearn
 import pandas as pd
 #from sklearn.model_selection import GridSearchCV, train_test_split, KFold
 from sklearn.linear_model import LogisticRegression
