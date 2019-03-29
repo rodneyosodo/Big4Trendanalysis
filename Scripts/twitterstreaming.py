@@ -38,16 +38,12 @@ class listener(StreamListener):
 auth = OAuthHandler(ckey, csecret)
 auth.set_access_token(atoken, asecret)
 
-twitterStream = Stream(auth, listener())
-twitterStream.filter(track=["#big4agenda"])
-
-"""
 while True:
     try:
         # Connect/reconnect the stream
         twitterStream = Stream(auth, listener())
         # DON'T run this approach async or you'll just create a ton of streams!
-        twitterStream.filter(track=["Trump"])
+        twitterStream.filter(track=["#big4agenda"])
     except IncompleteRead:
         # Oh well, reconnect and keep trucking
         continue
@@ -55,4 +51,3 @@ while True:
         # Or however you want to exit this loop
         twitterStream.disconnect()
         break
-"""
