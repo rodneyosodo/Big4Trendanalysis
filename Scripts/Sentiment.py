@@ -12,11 +12,11 @@ from scipy.stats import mode
 allowed_word_types = ["JJ", "JJR", "JJS", "NN", "NNS", "RB", "RBR", "RBS", "VB", "VBD", "VBG", "VBN", "VBP"]
 stop_words = set(stopwords.words("English"))
 
-open_file = open("../Pickle/Vectorizer.pickle", "rb")
+open_file = open("Pickle/Vectorizer.pickle", "rb")
 vectorizer = pickle.load(open_file)
 open_file.close()
 
-open_file = open("../Pickle/LogisticRegression.pickle", "rb")
+open_file = open("Pickle/LogisticRegression.pickle", "rb")
 LR = pickle.load(open_file)
 open_file.close()
 
@@ -24,7 +24,7 @@ open_file.close()
 #RForest = pickle.load(open_file)
 #open_file.close()
 
-open_file = open("../Pickle/BernoulliNB.pickle", "rb")
+open_file = open("Pickle/BernoulliNB.pickle", "rb")
 BNB = pickle.load(open_file)
 open_file.close()
 
