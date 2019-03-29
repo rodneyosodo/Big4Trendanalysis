@@ -51,4 +51,6 @@ def sentiment(text):
     yhatBNB = BNB.predict(tfidf_vect)
     modal = ((mode([yhatBNB, yhatLR])[0])[0])[0]
     average = ((yhatLR + yhatBNB)/2)[0]
+    if average == 0:
+        average = 1
     return modal, average
