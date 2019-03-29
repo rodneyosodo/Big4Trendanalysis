@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+"""
 # Include the fusioncharts.py file which has required functions to embed the charts in html page
 from fusioncharts import FusionCharts
 from fusioncharts import FusionTable
@@ -39,11 +39,11 @@ def chart(request):
       chartObj = FusionCharts(
          'realtimeline',
          'ex1',
-         '600',
+         '700',
          '400',
          'chart-1',
          'json',
-         ""#"{
+         """{
   "chart": {
     "caption": "Bitcoin Price Ticker",
     "subcaption": "Jan 31, 2019",
@@ -85,7 +85,7 @@ def chart(request):
       ]
     }
   ]
-}""#")
+}""")
 
-      return render(request, 'fusioncharts-html-template.html', {'output': chartObj.render()})
-"""
+      return render(request, 'index.html', {'output': chartObj.render()})
+#"""
