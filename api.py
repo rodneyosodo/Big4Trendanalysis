@@ -6,7 +6,7 @@ api = Flask(__name__)
 
 @api.route("/")
 def index():
-	return json.dumps({
+	return jsonify({
 		"message": "Success"
 		})
 
