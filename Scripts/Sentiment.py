@@ -1,13 +1,16 @@
 import pickle, nltk
 from nltk.corpus import stopwords
 from sklearn.linear_model import LogisticRegression as LR
+from sklearn.naive_bayes import BernoulliNB as BNB
+from sklearn.ensemble import RandomForestClassifier as RForest
+from nltk.classify import ClassifierI
 from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
 import re
+from scipy.stats import mode
+
 allowed_word_types = ["JJ", "JJR", "JJS", "NN", "NNS", "RB", "RBR", "RBS", "VB", "VBD", "VBG", "VBN", "VBP"]
 stop_words = set(stopwords.words("English"))
-
-#vectorizer = TfidfVectorizer()
 
 open_file = open("../Pickle/Vectorizer.pickle", "rb")
 vectorizer = pickle.load(open_file)
@@ -17,27 +20,13 @@ open_file = open("../Pickle/LogisticRegression.pickle", "rb")
 LR = pickle.load(open_file)
 open_file.close()
 
-class VoteClassifier(ClassifierI):
-    """docstring for VoteClassifier"""
-    def __init__(self, *classifiers):
-        self._classifiers = classifiers
-    
-    def classify(self, features):
-        votes =[]
-        for c in self._classifiers:
-            v = c.classify(features)
-            votes.append(v)
-        return str(mode(votes)[0])
+#open_file = open("../Pickle/RandomForestClassifier.pickle", "rb")
+#RForest = pickle.load(open_file)
+#open_file.close()
 
-    def confidence(self, features):
-        votes =[]
-        for c in self._classifiers:
-            v = c.classify(features)
-            votes.append(v)
-        choice_votes = int(mode(votes)[1])
-        conf = choice_votes / len(votes)
-        return conf
-
+open_file = open("../Pickle/BernoulliNB.pickle", "rb")
+BNB = pickle.load(open_file)
+open_file.close()
 
 def processing(tweet):
     tweet.lower()
@@ -53,8 +42,13 @@ def processing(tweet):
     fulls = " ".join(full)
     return fulls
 
+#voted_classifier = VoteClassifier(LR, RForest)#RForest, BNB)
+
 def sentiment(text):
     processed_text = processing(text);
     tfidf_vect = vectorizer.transform([processed_text]);
-    yhat = LR.predict(tfidf_vect)
-    return yhat
+    yhatLR = LR.predict(tfidf_vect)
+    yhatBNB = BNB.predict(tfidf_vect)
+    modal = ((mode([yhatBNB, yhatLR])[0])[0])[0]
+    average = ((yhatLR + yhatBNB)/2)[0]
+    return modal, average
