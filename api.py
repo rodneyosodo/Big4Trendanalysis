@@ -1,4 +1,29 @@
+from flask import Flask, jsonify
 from Scripts import Sentiment as s
 
-print(s.sentiment("This movie was awesome the acting was great, and there were pythons"))
-print(s.sentiment("This movie was utter junk. There were absolutely 0 pythons. I don't see what the point was at all. Horrible movie. 0/10"))
+api = Flask(__name__)
+
+
+@api.route("/")
+def index():
+	return json.dumps({
+		"message": "Success"
+		})
+
+@api.route("/data/<message>", methods=["GET", "PUT"])
+def data(message):
+	a = s.sentiment(str(message))
+	if a[0] == 1:
+		return jsonify({
+			"message" : message,
+			"response": "The message is positive with a confidence of {}".format(a[1] * 100)
+			})
+	elif a[0] == 0:
+		return jsonify({
+			"message" : message,
+			"response": "The message is negative with a confidence of {}".format(a[1] * 100)
+			})
+
+
+if __name__ == '__main__':
+	api.run()
