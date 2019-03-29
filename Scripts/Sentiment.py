@@ -17,6 +17,28 @@ open_file = open("../Pickle/LogisticRegression.pickle", "rb")
 LR = pickle.load(open_file)
 open_file.close()
 
+class VoteClassifier(ClassifierI):
+    """docstring for VoteClassifier"""
+    def __init__(self, *classifiers):
+        self._classifiers = classifiers
+    
+    def classify(self, features):
+        votes =[]
+        for c in self._classifiers:
+            v = c.classify(features)
+            votes.append(v)
+        return str(mode(votes)[0])
+
+    def confidence(self, features):
+        votes =[]
+        for c in self._classifiers:
+            v = c.classify(features)
+            votes.append(v)
+        choice_votes = int(mode(votes)[1])
+        conf = choice_votes / len(votes)
+        return conf
+
+
 def processing(tweet):
     tweet.lower()
     tweet = re.sub('((www\.[^\s]+)|(https?://[^\s]+))',' ',tweet)
