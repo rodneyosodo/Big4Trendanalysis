@@ -10,7 +10,7 @@ import re
 from scipy.stats import mode
 
 allowed_word_types = ["JJ", "JJR", "JJS", "NN", "NNS", "RB", "RBR", "RBS", "VB", "VBD", "VBG", "VBN", "VBP"]
-stop_words = set(stopwords.words("English"))
+stop_words = set(stopwords.words("english"))
 
 open_file = open("Pickle/Vectorizer.pickle", "rb")
 vectorizer = pickle.load(open_file)
