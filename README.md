@@ -19,16 +19,16 @@ cd Big4
 virtualenv --no-site-packages venv
 venv\Scripts\activate
 git clone https://github.com/0x6f736f646f/Big4Trendanalysis.git
-cd InstagrampostsTelegramBot
+cd Big4Trendanalysis
 ```
 Unix
 ```
-mkdir InstaFinder
-cd InstaFinder
+mkdir Big4
+cd Big4
 virtualenv --no-site-packages venv
 .venv/bin/activate
 git clone https://github.com/0x6f736f646f/Big4Trendanalysis.git
-cd InstagrampostsTelegramBot
+cd Big4Trendanalysis
 ```
 #### Twitter
 * You must have a twitter account
@@ -45,6 +45,3 @@ Docker (You can do without docker)
 Note: It is recommended to use Anaconda distribution of Python.
 
 ### Installing
-
-# Big4Trendanalysis
-To gauge Kenyans attitude towards the presidents, Uhuru Kenyatta, Big Four Agenda in general and the individual pillars in particular. of Kenya 
