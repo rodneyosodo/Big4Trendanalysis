@@ -26,4 +26,4 @@ def data(message):
 
 
 if __name__ == '__main__':
-	api.run("0.0.0.0", port=80, debug=True)
+	api.run("0.0.0.0", port=5000, debug=True)
