@@ -8,7 +8,7 @@ WORKDIR /code
 COPY . /code/
 RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
-RUN python3 -c "import nltk;nltk.download('stopwords')"
+RUN python3 -c "import nltk;nltk.download('stopwords');nltk.download('punkt');nltk.download('averaged_perceptron_tagger')"
 
 # CMD ["python", "api.py"]
 
