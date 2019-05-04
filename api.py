@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from Scripts import Sentiment as s
+import Sentiment as s
 
 api = Flask(__name__)
 
@@ -26,4 +26,4 @@ def data(message):
 
 
 if __name__ == '__main__':
-	api.run("0.0.0.0", port=5000, debug=True)
+	api.run("0.0.0.0", port=5000)
