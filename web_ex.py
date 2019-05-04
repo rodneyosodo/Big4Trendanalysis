@@ -14,10 +14,10 @@ def home():
         	ans = "Positive"
         elif pred[0] == 0:
         	ans = "Negative"
-        print(pred)
+        #print(pred)
         return render_template('index.html', sentiment=ans)
     return render_template('index.html', sentiment='')
     
 if __name__ == '__main__':
-	app.run(port=3000, debug=True)
+	app.run("0.0.0.0", port=5000)
 
