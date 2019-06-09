@@ -1,12 +1,17 @@
-FROM python
+FROM ubuntu
 LABEL maintainer="blackd0t@protonmail.com"
 
-#RUN mkdir /code
+RUN apt-get update -y --fix-missing
+RUN apt-get install -y python3.6 python3-pip python-pip python-dev build-essential
+RUN mkdir /code
 WORKDIR /code
 COPY . /code/
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-RUN python -c "import nltk;nltk.download('stopwords')"
+RUN pip3 install --upgrade pip
+RUN pip3 install -r requirements.txt
+RUN python3 -c "import nltk;nltk.download('stopwords');nltk.download('punkt');nltk.download('averaged_perceptron_tagger')"
 
-EXPOSE 80
-CMD ["python", "api.py"]
+# CMD ["python", "api.py"]
+
+
+# ENTRYPOINT ["python3"]
+# CMD ["api.py"]

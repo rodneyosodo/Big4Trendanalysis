@@ -1,4 +1,4 @@
-﻿aniso8601==6.0.0
+aniso8601==6.0.0
 autopep8==1.4.4
 certifi==2019.3.9
 chardet==3.0.4
@@ -8,7 +8,7 @@ Flask==1.0.2
 idna==2.8
 itsdangerous==1.1.0
 Jinja2==2.10.1
-kiwisolver==1.0.1
+kiwisolver==1.1.0
 MarkupSafe==1.1.1
 matplotlib==3.0.3
 nltk==3.4.1
@@ -23,11 +23,9 @@ pytz==2019.1
 requests==2.21.0
 requests-oauthlib==1.2.0
 scikit-learn==0.20.3
-scipy==1.2.1
 singledispatch==3.4.0.3
 six==1.12.0
 sklearn==0.0
 tweepy==3.7.0
-urllib3==1.24.2
+urllib3==1.25.1
 Werkzeug==0.15.2
-xgboost==0.82
