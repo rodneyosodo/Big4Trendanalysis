@@ -1,4 +1,4 @@
-﻿aniso8601==6.0.0
+aniso8601==6.0.0
 autopep8==1.4.4
 certifi==2019.3.9
 chardet==3.0.4
@@ -10,8 +10,8 @@ itsdangerous==1.1.0
 Jinja2==2.10.1
 kiwisolver==1.1.0
 MarkupSafe==1.1.1
-matplotlib
-nltk==3.4
+matplotlib==3.0.3
+nltk==3.4.1
 numpy==1.16.3
 oauthlib==3.0.1
 pandas==0.24.2
